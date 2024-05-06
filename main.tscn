@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddh2o782upnur"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_n26hx"]
+[ext_resource type="PackedScene" uid="uid://bfr46yv1o531o" path="res://character/character.tscn" id="1_oxsig"]
+[ext_resource type="PackedScene" uid="uid://djs4wp56bkpco" path="res://gui/gui.tscn" id="2_f7gc7"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_n26hx")
+
+[node name="GUI" parent="." node_paths=PackedStringArray("charater") instance=ExtResource("2_f7gc7")]
+charater = NodePath("../Character")
+
+[node name="Character" parent="." instance=ExtResource("1_oxsig")]
+position = Vector2(555, 350)

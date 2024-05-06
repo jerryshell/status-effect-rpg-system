@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://djs4wp56bkpco"]
+
+[ext_resource type="Script" path="res://gui/gui.gd" id="1_a0vpd"]
+[ext_resource type="Texture2D" uid="uid://omu3wi7gsyv2" path="res://gui/sprite/sleepy.png" id="2_3x1gp"]
+[ext_resource type="Texture2D" uid="uid://xf0n1jumv73k" path="res://gui/sprite/embrassed-energy.png" id="3_xii3l"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_a0vpd")
+
+[node name="StatusEffectContainer" type="HBoxContainer" parent="."]
+offset_left = 29.0
+offset_top = 531.0
+offset_right = 429.0
+offset_bottom = 571.0
+scale = Vector2(2, 2)
+
+[node name="StunTextureRect" type="TextureRect" parent="StatusEffectContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_3x1gp")
+expand_mode = 1
+
+[node name="BerserkTextureRect" type="TextureRect" parent="StatusEffectContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("3_xii3l")
+expand_mode = 1

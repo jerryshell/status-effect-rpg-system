@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfr46yv1o531o"]
+
+[ext_resource type="Script" path="res://character/character.gd" id="1_pib1f"]
+[ext_resource type="Texture2D" uid="uid://dnir5vbwlrw3f" path="res://character/sprite/battle_axe.png" id="2_ong85"]
+[ext_resource type="Texture2D" uid="uid://be0lb0s2bqi3y" path="res://character/sprite/skeleton.png" id="2_seka7"]
+
+[sub_resource type="Animation" id="Animation_cxcyu"]
+resource_name = "spin"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_ahdyu"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8v365"]
+_data = {
+"RESET": SubResource("Animation_ahdyu"),
+"spin": SubResource("Animation_cxcyu")
+}
+
+[node name="Character" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_pib1f")
+
+[node name="Skeleton" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_seka7")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="WeaponSprite" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(0, -21)
+rotation = -0.785398
+texture = ExtResource("2_ong85")
+
+[node name="WeaponAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8v365")
+}
+autoplay = "spin"
